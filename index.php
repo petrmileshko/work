@@ -6,7 +6,7 @@
 
 <?php get_header(); ?>
 
-<h1>БИЗНЕС ПРОЦЕССЫ</h1>
+<h1><?=WORKPRO_NAME?></h1>
 
 <?php get_footer(); ?>
 

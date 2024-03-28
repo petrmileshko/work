@@ -2,7 +2,7 @@
 //Инициализация настроек
 require_once 'inc/config.php';
 
-if (!function_exists('workpro_setup')) :
+if (!function_exists('workpro_setup') && WORKPRO) :
 
 	function workpro_setup()
 	{

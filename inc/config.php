@@ -10,6 +10,7 @@ const EMAIL_REGEX = '/^\S+@\S+\.\S+$/';
 const WORKPRO_STYLES = WORKPRO . '/css/style.min.css';
 const WORKPRO_SCRIPTS = WORKPRO . '/js/app.min.js';
 const WORKPRO_VERSION = '1.0.0';
+const WORKPRO_NAME = 'БИЗНЕС ПРОЦЕССЫ';
 
 const VIEWS = [
 	'login',
