@@ -12,10 +12,10 @@ const WORKPRO_SCRIPTS = WORKPRO . '/js/app.min.js';
 const WORKPRO_VERSION = '1.0.0';
 const WORKPRO_NAME = 'БИЗНЕС ПРОЦЕССЫ';
 
-const VIEWS = [
-	'login',
-	'manager',
-	'admin'
+const PAGE_VIEWS = [
+	'guest' =>'login',
+	'contributor'=>'manager',
+	'administrator'=>'admin'
 ];
 
 if (!function_exists('validate_phone_number')) {
