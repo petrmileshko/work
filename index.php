@@ -6,6 +6,7 @@
 
 <?php get_header(); ?>
 
+<h1>БИЗНЕС ПРОЦЕССЫ</h1>
 
 <?php get_footer(); ?>
 
