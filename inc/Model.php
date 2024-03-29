@@ -7,10 +7,10 @@ if (!class_exists('Model')) :
 		protected $model;
 		protected $args;
 
-		public function __construct()
+		public function __construct($args = [])
 		{
 			$this->model = get_class($this);
-			$this->args = [];
+			$this->args = $args;
 		}
 
 		public function render()
