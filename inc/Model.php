@@ -5,15 +5,17 @@ if (!class_exists('Model')) :
 	abstract class Model
 	{
 		protected $model;
+		protected $args;
 
 		public function __construct()
 		{
 			$this->model = get_class($this);
+			$this->args = [];
 		}
 
-		public function render($args = [])
+		public function render()
 		{
-			get_template_part('template-parts/content', $this->model, $args);
+			get_template_part('template-parts/content', $this->model, $this->args);
 		}
 
 		protected function header($name = '', $args = [])
