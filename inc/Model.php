@@ -15,7 +15,7 @@ if (!class_exists('Model')) :
 
 		public function render()
 		{
-			get_template_part('template-parts/content', $this->model, $this->args);
+			get_template_part('template-parts/content', strtolower($this->model), $this->args);
 		}
 
 		protected function header($name = '', $args = [])
