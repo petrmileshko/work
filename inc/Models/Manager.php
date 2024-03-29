@@ -15,6 +15,7 @@ if (!class_exists('Manager')) :
 			$this->header();
 			$this->header('authorized');
 			parent::render();
+			$this->footer('authorized');
 			$this->footer();
 		}
 
