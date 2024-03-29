@@ -4,12 +4,10 @@
 
 try {
 
-Router::routes(PAGE_VIEWS)
+	Router::routes(PAGE_VIEWS)
+		->init()
 		->render();
-
+		
+} catch (Exception $e) {
+	die($e->getMessage());
 }
-catch(Exception $e) {
-		die($e->getMessage());
-}
-
-?>
