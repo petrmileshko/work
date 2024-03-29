@@ -13,6 +13,7 @@ if (!class_exists('Admin')) :
 		public function render()
 		{
 			$this->header();
+			$this->header('authorized');
 			parent::render();
 			$this->footer();
 		}
