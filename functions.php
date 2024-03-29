@@ -27,5 +27,6 @@ if (!function_exists('workpro_setup') && WORKPRO) :
 	require_once 'inc/Model.php';
 	require_once 'inc/Models/Login.php';
 	require_once 'inc/Models/Manager.php';
+	require_once 'inc/Models/Admin.php';
 	require_once 'inc/Router.php';
 endif;
