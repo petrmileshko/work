@@ -15,7 +15,10 @@ const DEFAULT_MODEL = 'Login';
 
 const PAGE_VIEWS = [
 	'guest' =>'Login',
+	'subscriber'=>'Manager',
 	'contributor'=>'Manager',
+	'author'=>'Manager',
+	'editor'=>'Manager',
 	'administrator'=>'Admin'
 ];
 
