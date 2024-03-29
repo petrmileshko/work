@@ -17,8 +17,8 @@ const PAGE_VIEWS = [
 	'guest' =>'Login',
 	'subscriber'=>'Manager',
 	'contributor'=>'Manager',
-	'author'=>'Manager',
-	'editor'=>'Manager',
+	'author'=>'Admin',
+	'editor'=>'Admin',
 	'administrator'=>'Admin'
 ];
 
