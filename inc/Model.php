@@ -4,8 +4,8 @@ if (!class_exists('Model')) :
 
 	abstract class Model
 	{
-		protected $model;
-		protected $args;
+		private $model;
+		private $args;
 
 		public function __construct($args = [])
 		{
