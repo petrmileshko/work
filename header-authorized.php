@@ -17,8 +17,7 @@
 
       <ul class="navigation__menu menu menu--nojs">
         <li class="menu__item"><a class="menu__link menu__link--current text" href="#">Отчеты</a></li>
-        <li class="menu__item"><a class="menu__link text" href="#">ЛК</a></li>
-        <li class="menu__item"><a class="menu__link text" href="#">Выход</a></li>
+        <li class="menu__item"><a class="menu__link text" href="/wp-admin/profile.php">ЛК</a></li>
       </ul>
     </nav>
 </header>
