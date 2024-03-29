@@ -2,7 +2,7 @@
 
 if (!class_exists('Login')) :
 
-	class Login extends Model
+	final class Login extends Model
 	{
 
 		public function __construct()
