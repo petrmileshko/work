@@ -24,5 +24,7 @@ if (!function_exists('workpro_setup') && WORKPRO) :
 	}
 
 	add_action('after_setup_theme', 'workpro_setup');
+	require_once 'inc/Model.php';
+	require_once 'inc/Models/Login.php';
 	require_once 'inc/Router.php';
 endif;
