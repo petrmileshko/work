@@ -16,7 +16,9 @@ if (!class_exists('Router')) :
 
 			self::$route = new self;
 
-			if (!isset($routes) || !is_array($routes)) throw new Exception("Ошибка: Не заданы маршруты страниц", 1);
+			if (!isset($routes)) throw new Exception("Ошибка: Не заданы маршруты страниц", 1001);
+			
+			if (!is_array($routes)) throw new Exception("Ошибка: Ожидается ассоциативный массив в качестве маршрутов", 1002);
 
 			self::$route->current_model = self::$route->selectModel($routes);
 
