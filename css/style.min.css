@@ -9,3 +9,13 @@ img {
   height: auto;
   object-fit: cover;
 }
+
+.custom-logo {
+	width: 56px;
+	height: 56px;
+}
+
+.index__header .custom-logo {
+	width: 90px;
+	height: 90px;
+}

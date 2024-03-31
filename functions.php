@@ -10,8 +10,8 @@ if (!function_exists('workpro_setup') && WORKPRO) :
 		add_theme_support(
 			'custom-logo',
 			[
-				'height'               => 56,
-				'width'                => 56,
+				'height'               => 32,
+				'width'                => 32,
 				'flex-width'           => true,
 				'flex-height'          => true,
 				'unlink-homepage-logo' => false,
