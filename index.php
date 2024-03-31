@@ -2,11 +2,12 @@
 // Бизнес процессы
 // Приложение с использованием WOrdpress в качестве фреймворка
 
-?>
+try {
 
-<?php get_header(); ?>
-
-<h1><?=WORKPRO_NAME?></h1>
-
-<?php get_footer(); ?>
-
+	Router::routes(PAGE_VIEWS)
+		->init()
+		->render();
+		
+} catch (Exception $e) {
+	die($e->getMessage());
+}

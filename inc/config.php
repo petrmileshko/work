@@ -11,11 +11,15 @@ const WORKPRO_STYLES = WORKPRO . '/css/style.min.css';
 const WORKPRO_SCRIPTS = WORKPRO . '/js/app.min.js';
 const WORKPRO_VERSION = '1.0.0';
 const WORKPRO_NAME = 'БИЗНЕС ПРОЦЕССЫ';
+const DEFAULT_MODEL = 'Login';
 
-const VIEWS = [
-	'login',
-	'manager',
-	'admin'
+const PAGE_VIEWS = [
+	'guest' =>'Login',
+	'subscriber'=>'Manager',
+	'contributor'=>'Manager',
+	'author'=>'Admin',
+	'editor'=>'Admin',
+	'administrator'=>'Admin'
 ];
 
 if (!function_exists('validate_phone_number')) {
