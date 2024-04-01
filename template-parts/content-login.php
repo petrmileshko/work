@@ -7,24 +7,25 @@
 		<strong>WORKPRO</strong>
 		<h1 class="index__title">Бизнес процессы</h1>
 	</header>
-	<? if (isset($args) && is_array($args) && !empty($args)) : ?>
-		<pre>
-		<? print_r($args) ?>
-		</pre>
-	<? else : ?>
-		<form action="" method="post" autocomplete="off">
-			<p>Используйте учетные данные от платформы</p>
-			<label>
-				<input type="text" name="userlogin" placeholder="Ваш логин" required>
-			</label>
-			<label>
-				<input type="password" name="userpass" placeholder="Ваш пароль" required>
-			</label>
-			<button class="button" type="submit">Далее</button>
-			<input type="hidden" name="form" value="login">
-			<a href="#">Забыли пароль?</a>
-		</form>
-	<? endif; ?>
+
+
+	<form action="" method="post" autocomplete="off">
+		<p>Используйте учетные данные от платформы</p>
+		<label>
+			<input type="text" name="userlogin" placeholder="Ваш логин" required>
+		</label>
+		<label>
+			<input type="password" name="userpass" placeholder="Ваш пароль" required>
+		</label>
+		<button class="button" type="submit">Далее</button>
+		<input type="hidden" name="form" value="login">
+		<? if (isset($args) && is_array($args) && !empty($args) && $args['result'] === false) : ?>
+			<p class="error">
+				<?= $args['message'] ?>
+			</p>
+		<? endif; ?>
+		<a href="#">Забыли пароль?</a>
+	</form>
 </main>
 
 <footer class="page__footer page-footer">

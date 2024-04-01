@@ -37,7 +37,8 @@ if (!class_exists('User')) :
 
 		private function authorise()
 		{
-			return ['result' => true, 'message' => 'Авторизация'];
+			
+			return ['result' => false, 'message' => 'Учетные данные не подтвержедны'];
 		}
 
 		private function isLoginEvent()

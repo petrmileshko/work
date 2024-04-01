@@ -19,3 +19,7 @@ img {
 	width: 90px;
 	height: 90px;
 }
+
+.error {
+	color: #ea0000;
+}
