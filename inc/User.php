@@ -5,7 +5,7 @@ if (!class_exists('User')) :
 	class User
 	{
 		private $user;
-		private $args;
+		private $args = [];
 
 		public static function init()
 		{
@@ -14,14 +14,14 @@ if (!class_exists('User')) :
 				return self::$user;
 			}
 
-			if (self::isLoginEvent()) self::authorise();
+			if (self::isLoginEvent()) self::$args = self::authorise();
 
 			return self::$user;
 		}
 
 		private function authorise()
 		{
-			$this->args = ['result' => true, 'message' => 'Авторизация'];
+			 return ['result' => true, 'message' => 'Авторизация'];
 		}
 
 		private function isLoginEvent()
