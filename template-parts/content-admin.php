@@ -4,4 +4,9 @@
 		<?= $args['user_name'] ? $args['user_name'] : 'Неизвестный' ?>
 	</p>
 
-<? endif; ?>
+<?
+	$lk = new Profile($args);
+	if ($lk) {
+		$lk->render();
+	}
+endif; ?>
