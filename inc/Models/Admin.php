@@ -5,9 +5,9 @@ if (!class_exists('Admin')) :
 	final class Admin extends Model
 	{
 
-		public function __construct()
+		public function __construct($args = [])
 		{
-			parent::__construct();
+			parent::__construct($args);
 		}
 
 		public function render()
