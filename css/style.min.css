@@ -28,3 +28,19 @@ img {
 	font-size: x-large;
 	color: #127500;
 }
+
+.page__main {
+	display: none;
+}
+
+.page__main:target {
+	display: block;
+}
+
+.page__main:target ~ .manager {
+	display: none;
+}
+
+.manager {
+	display: block;
+}
