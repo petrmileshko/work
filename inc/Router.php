@@ -6,6 +6,7 @@ if (!class_exists('Router')) :
 	{
 		private static $route;
 		private $current_model;
+		private $user;
 
 		public static function routes($routes = null)
 		{
@@ -20,6 +21,8 @@ if (!class_exists('Router')) :
 			
 			if (!is_array($routes)) throw new Exception("Ошибка: Ожидается ассоциативный массив в качестве маршрутов", 1002);
 
+			self::$user =  User::init();
+
 			self::$route->current_model = self::$route->selectModel($routes);
 
 			return self::$route;
@@ -27,7 +30,7 @@ if (!class_exists('Router')) :
 
 		public function init()
 		{
-			return new $this->current_model;
+			return new $this->current_model($this->user);
 		}
 
 		private function selectModel($routes)
