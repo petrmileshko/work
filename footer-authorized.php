@@ -1,4 +1,4 @@
-<footer class="page__footer">
+<footer class="page__footer page-footer">
 	<div class="page-footer center-flexible">
 	<?php
 		if (has_custom_logo()) echo get_custom_logo();
@@ -7,7 +7,7 @@
 		<p class="page-footer__copyright">
 			&copy;<?php bloginfo('blogname');
 						$currentYear = date('Y');
-						$foundedYear = '2023';
+						$foundedYear = '2024';
 						if ($currentYear > $foundedYear) {
 							echo " $foundedYear - $currentYear";
 						} else {
