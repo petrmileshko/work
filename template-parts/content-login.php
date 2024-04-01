@@ -16,6 +16,7 @@
 			<input type="password" name="userpass" placeholder="Ваш пароль" required>
 		</label>
 		<button class="button" type="submit">Далее</button>
+		<input type="hidden" name="form" value="login">
 		<a href="#">Забыли пароль?</a>
 	</form>
 </main>
