@@ -3,10 +3,10 @@
 	if ($lk) {
 		$lk->render();
 	} ?>
-	<p>
+	<main class="page__main manager" id="reports">
 		Администратор:&nbsp;
 		<?= $args['user_name'] ? $args['user_name'] : 'Неизвестный' ?>
-	</p>
+	</main>
 
 <?
 endif; ?>
