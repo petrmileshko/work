@@ -5,6 +5,7 @@ if (!class_exists('User')) :
 	class User
 	{
 		private $user;
+		private $error;
 
 		public static function init()
 		{
@@ -19,7 +20,7 @@ if (!class_exists('User')) :
 		}
 
 		private function authorise() {
-			echo 'Авторизация';
+			$this->error = 'Авторизация';
 		}
 
 		private function isLoginEvent() {
