@@ -1,6 +1,6 @@
 <footer class="page__footer page-footer">
 	<div class="page-footer center-flexible">
-	<?php
+		<?php
 		if (has_custom_logo()) echo get_custom_logo();
 		else echo "Логотип";
 		?>
@@ -14,6 +14,8 @@
 							echo " $currentYear";
 						}
 						?>
+			&nbsp;&nbsp;<em>Вы зашли в систему как:</em>
+			<b><?= $args['role'] ? $args['role'] : '' ?></b>
 		</p>
 	</div>
 </footer>

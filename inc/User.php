@@ -48,6 +48,8 @@ if (!class_exists('User')) :
 				$user = wp_get_current_user();
 				$this->args = [
 					'user_id' => $user->ID,
+					'user_login' => $user->user_login,
+					'user_email' => $user->user_email,
 					'user_name' => $user->display_name
 				];
 				return;
