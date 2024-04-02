@@ -9,7 +9,7 @@
 	</header>
 
 
-	<form class="form" action="" method="post" autocomplete="off">
+	<form class="form" action="/" method="post" autocomplete="off">
 		<p class="form__info">Используйте учетные данные от платформы</p>
 		<label class="form__label">
 			<input type="text" name="userlogin" placeholder="Ваш логин" required>
