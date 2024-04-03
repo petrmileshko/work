@@ -4,6 +4,9 @@ if (!defined('WORKPRO')) :
 	define('WORKPRO', get_template_directory_uri());
 endif;
 
+if (!defined('DBASE_VER')) :
+	define('DBASE_VER', get_option('workpro_dbase_version', 0));
+endif;
 
 const PHONE_REGEX = '/^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$/';
 const EMAIL_REGEX = '/^\S+@\S+\.\S+$/';
@@ -13,13 +16,14 @@ const WORKPRO_VERSION = '1.0.0';
 const WORKPRO_NAME = 'БИЗНЕС ПРОЦЕССЫ';
 const DEFAULT_MODEL = 'Login';
 
+
 const PAGE_VIEWS = [
-	'guest' =>'Login',
-	'subscriber'=>'Manager',
-	'contributor'=>'Manager',
-	'author'=>'Admin',
-	'editor'=>'Admin',
-	'administrator'=>'Admin'
+	'guest' => 'Login',
+	'subscriber' => 'Manager',
+	'contributor' => 'Manager',
+	'author' => 'Admin',
+	'editor' => 'Admin',
+	'administrator' => 'Admin'
 ];
 
 if (!function_exists('validate_phone_number')) {
