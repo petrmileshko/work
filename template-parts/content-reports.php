@@ -2,9 +2,9 @@
 	<ul>
 		<? foreach ($args as $report) : ?>
 			<li>
-				<span>Дата: </span><?= $report['report_date'] ?>&nbsp;&nbsp;
-				<span>Торговая точка: </span><?= $report['outlets_id'] ?>&nbsp;&nbsp;
-				<span>Выручка / руб: </span><?= $report['revenue'] ?>
+				<span><?= $report['report_date'] ?>&nbsp;&nbsp;</span>
+				<span><?= $report['outlets_address'] ?>&nbsp;&nbsp;</span>
+				<span><?= $report['revenue'] ?> руб: </span>
 			</li>
 		<? endforeach; ?>
 	</ul>
