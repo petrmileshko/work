@@ -107,3 +107,12 @@ if (!function_exists('multiStrip')) {
 		return stripslashes(strip_tags(trim($str)));
 	}
 }
+
+if (!function_exists('convertDate')) {
+	function convertDate($date,$format)
+	{
+		$newDate = new DateTime($date);
+
+		return $newDate->format($format);
+	}
+}
