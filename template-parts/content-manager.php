@@ -5,8 +5,13 @@
 		$lk->render();
 	} ?>
 	<main class="page__main manager" id="reports">
-		Менеджер:&nbsp;
-		<?= $args['user_id'] ? $args['user_id'] : 'Неизвестный' ?>
+		<?= $args['user_name'] ? $args['user_name'] : 'Неизвестный' ?>
+		<?
+		$reports = new Reports($args);
+		if ($reports) {
+			$reports->render();
+		}
+		?>
 	</main>
 <?
 endif;

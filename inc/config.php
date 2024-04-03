@@ -8,6 +8,7 @@ if (!defined('DBASE_VER')) :
 	define('DBASE_VER', get_option('workpro_dbase_version', 0));
 endif;
 
+
 const PHONE_REGEX = '/^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$/';
 const EMAIL_REGEX = '/^\S+@\S+\.\S+$/';
 const WORKPRO_STYLES = WORKPRO . '/css/style.min.css';
@@ -24,6 +25,11 @@ const PAGE_VIEWS = [
 	'author' => 'Admin',
 	'editor' => 'Admin',
 	'administrator' => 'Admin'
+];
+
+const TABLES = [
+	'workpro_reports',
+	'workpro_outlets'
 ];
 
 if (!function_exists('validate_phone_number')) {

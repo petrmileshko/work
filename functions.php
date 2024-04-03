@@ -7,8 +7,6 @@ if (!function_exists('workpro_dbase_setup') && DBASE_VER === 0) :
 	function workpro_dbase_setup()
 	{
 		global $wpdb;
-		$wpdb->workpro_reports = $wpdb->prefix . 'workpro_reports';
-		$wpdb->workpro_outlets = $wpdb->prefix . 'workpro_outlets';
 		$query = "
 			CREATE TABLE `" . $wpdb->workpro_reports . "` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `outlets_id` INT NOT NULL , `revenue` FLOAT NOT NULL , `user_id` INT NOT NULL , `report_date` DATE NOT NULL , PRIMARY KEY (`id`), INDEX (`user_id`), INDEX `report_author` (`user_id`)) ENGINE = InnoDB;
 			CREATE TABLE `" . $wpdb->workpro_outlets . "` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `outlets_name` VARCHAR(150) NOT NULL , `outlets_address` MEDIUMTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
@@ -25,7 +23,7 @@ if (!function_exists('workpro_setup') && WORKPRO) :
 
 	function workpro_setup()
 	{
-
+		global $wpdb;
 		add_theme_support(
 			'custom-logo',
 			[
@@ -40,6 +38,10 @@ if (!function_exists('workpro_setup') && WORKPRO) :
 		add_theme_support(
 			'html5'
 		);
+
+		foreach (TABLES as $table) {
+			$wpdb->$table = $wpdb->prefix . $table;
+		}
 	}
 	add_action('after_setup_theme', 'workpro_setup');
 	require_once 'inc/User.php';
@@ -48,5 +50,6 @@ if (!function_exists('workpro_setup') && WORKPRO) :
 	require_once 'inc/Models/Manager.php';
 	require_once 'inc/Models/Admin.php';
 	require_once 'inc/Models/Profile.php';
+	require_once 'inc/Models/Reports.php';
 	require_once 'inc/Router.php';
 endif;
