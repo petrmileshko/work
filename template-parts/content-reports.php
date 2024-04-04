@@ -9,7 +9,8 @@
 			<? if( is_int($key) ):?>
 			<li class="reports__item report">
 				<time class="report__date" datetime="<?= $report['report_date'] ?>"><?= convertDate($report['report_date'], 'd-m-Y')  ?>&nbsp;&nbsp;</time>
-				<address class="report__outlets"><?= $report['outlets_address'] ?>&nbsp;&nbsp;</address>
+				<span class="report__outlets-name"><?= $report['outlets_name'] ?>&nbsp;&nbsp;</span>
+				<address class="report__outlets-address"><?= $report['outlets_address'] ?>&nbsp;&nbsp;</address>
 				<span class="report__revenue"><?= $report['revenue'] ?> руб</span>
 			</li>
 			<? endif;?>
