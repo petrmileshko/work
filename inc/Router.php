@@ -17,9 +17,9 @@ if (!class_exists('Router')) :
 
 			self::$route = new self;
 
-			if (!isset($routes)) throw new Exception("Ошибка: Не заданы маршруты страниц", 1001);
+			if (!isset($routes)) throw new Exception(" Router - Не заданы маршруты страниц", 1001);
 
-			if (!is_array($routes)) throw new Exception("Ошибка: Ожидается ассоциативный массив в качестве маршрутов", 1002);
+			if (!is_array($routes)) throw new Exception("Router - Ожидается ассоциативный массив в качестве маршрутов", 1002);
 
 			self::$route->user =  User::init();
 

@@ -61,8 +61,8 @@ if (!class_exists('User')) :
 		private function authorise()
 		{
 
-			$log = ($_POST['userlogin']) ? wp_unslash($_POST['userlogin']) : '';
-			$pwd = ($_POST['userpass']) ? wp_unslash($_POST['userpass']) : '';
+			$log = ($_POST['userlogin']) ? wp_unslash( multiStrip( $_POST['userlogin'])) : '';
+			$pwd = ($_POST['userpass']) ? wp_unslash( multiStrip($_POST['userpass'])) : '';
 
 			$auth = wp_authenticate($log, $pwd);
 
