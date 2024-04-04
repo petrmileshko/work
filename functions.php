@@ -8,7 +8,7 @@ if (!function_exists('workpro_dbase_setup') && DBASE_VER === 0) :
 	{
 		global $wpdb;
 		$query = "
-			CREATE TABLE `" . $wpdb->workpro_reports . "` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `outlets_id` INT NOT NULL , `revenue` FLOAT NOT NULL , `user_id` INT NOT NULL , `report_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`), INDEX (`user_id`), INDEX `report_author` (`user_id`)) ENGINE = InnoDB;
+			CREATE TABLE `" . $wpdb->workpro_reports . "` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `outlets_id` BIGINT NOT NULL , `revenue` FLOAT NOT NULL , `user_id` BIGINT UNSIGNED NOT NULL , `report_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 			CREATE TABLE `" . $wpdb->workpro_outlets . "` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `outlets_name` VARCHAR(150) NOT NULL , `outlets_address` MEDIUMTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 			";
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
