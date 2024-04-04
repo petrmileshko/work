@@ -1,16 +1,18 @@
 <? if (isset($args) && is_array($args) && !empty($args)) : 
-		$form = new ReportSubmit();
+		$form = new ReportSubmit($args);
 		if($form) {
 			$form->render();
 		}
 	?>
 	<ul class="manager__reports reports">
-		<? foreach ($args as $report) : ?>
+		<? foreach ($args as $key => $report) : ?>
+			<? if( is_int($key) ):?>
 			<li class="reports__item report">
 				<time class="report__date" datetime="<?= $report['report_date'] ?>"><?= convertDate($report['report_date'], 'd-m-Y')  ?>&nbsp;&nbsp;</time>
 				<address class="report__outlets"><?= $report['outlets_address'] ?>&nbsp;&nbsp;</address>
 				<span class="report__revenue"><?= $report['revenue'] ?> руб</span>
 			</li>
+			<? endif;?>
 		<? endforeach; ?>
 	</ul>
 <? endif;

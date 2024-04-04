@@ -9,5 +9,5 @@ try {
 		->render();
 		
 } catch (Exception $e) {
-	die($e->getMessage());
+	die("<p class='error'>Ошибка ". $e->getCode() . " : " . $e->getMessage() ."</p>" );
 }
