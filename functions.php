@@ -8,8 +8,10 @@ if (!function_exists('workpro_dbase_setup') && DBASE_VER === 0) :
 	{
 		global $wpdb;
 		$query = "
-			CREATE TABLE `" . $wpdb->workpro_reports . "` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `outlets_id` BIGINT NOT NULL , `revenue` FLOAT NOT NULL , `user_id` BIGINT UNSIGNED NOT NULL , `report_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 			CREATE TABLE `" . $wpdb->workpro_outlets . "` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `outlets_name` VARCHAR(150) NOT NULL , `outlets_address` MEDIUMTEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+			CREATE TABLE `" . $wpdb->workpro_reports . "` ( `id` BIGINT NOT NULL AUTO_INCREMENT , `outlets_id` BIGINT NOT NULL , `revenue` FLOAT NOT NULL , `user_id` BIGINT UNSIGNED NOT NULL , `report_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+			ALTER TABLE `" . $wpdb->workpro_reports . "` ADD INDEX `wpro_outlets_idx` (`outlets_id` ASC) VISIBLE, ADD INDEX `wpro_users_idx` (`user_id` ASC) VISIBLE;
+			ALTER TABLE `" . $wpdb->workpro_reports . "` ADD CONSTRAINT `wpro_outlets` FOREIGN KEY (`outlets_id`) REFERENCES `" . $wpdb->workpro_outlets . "` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION, ADD CONSTRAINT `wpro_users` FOREIGN KEY (`user_id`) REFERENCES `wp_users` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION;
 			";
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 		dbDelta($query);
@@ -54,3 +56,5 @@ if (!function_exists('workpro_setup') && WORKPRO) :
 	require_once 'inc/Models/ReportSubmit.php';
 	require_once 'inc/Router.php';
 endif;
+
+//delete_option('workpro_dbase_version');
