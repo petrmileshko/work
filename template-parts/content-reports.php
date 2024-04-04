@@ -1,4 +1,9 @@
-<? if (isset($args) && is_array($args) && !empty($args)) : ?>
+<? if (isset($args) && is_array($args) && !empty($args)) : 
+		$form = new ReportSubmit();
+		if($form) {
+			$form->render();
+		}
+	?>
 	<ul class="manager__reports reports">
 		<? foreach ($args as $report) : ?>
 			<li class="reports__item report">

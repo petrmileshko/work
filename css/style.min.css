@@ -44,3 +44,7 @@ img {
 .page__main:target ~ .manager {
 	display: none;
 }
+
+.report__outlets {
+	display: inline-block;
+}
