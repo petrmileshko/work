@@ -56,5 +56,3 @@ if (!function_exists('workpro_setup') && WORKPRO) :
 	require_once 'inc/Models/ReportSubmit.php';
 	require_once 'inc/Router.php';
 endif;
-
-//delete_option('workpro_dbase_version');
