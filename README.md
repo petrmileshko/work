@@ -30,4 +30,4 @@
 
 ---
 Структура БД
-![image](https://work.webpeternet.ru/img/data-tables.png)
+![image](https://files.webpeternet.com/data-tables.png)
