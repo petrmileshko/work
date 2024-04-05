@@ -9,12 +9,16 @@ if (!class_exists('Reports')) :
 		{
 			if (!isset($args['user_id'])) throw new Exception("Reports() необходимо передать аргументом id пользователя", 1012);
 
+
 			if (isset($args['event'])) {
 				$result = $this->insertArgs($args['event']);
 				$reports = $this->setupArgs($args['user_id']);
 				$reports['event'] = $result;
 			} else {
-				$reports = $this->setupArgs($args['user_id']);
+				if (isset($args['ReportSubmit']) && $args['ReportSubmit'] === 'off') {
+					$reports = $this->setupArgs('all');
+					$reports['ReportSubmit'] = $args['ReportSubmit'];
+				} else $reports = $this->setupArgs($args['user_id']);
 			}
 
 			$reports['user_id'] = $args['user_id'];
@@ -29,9 +33,18 @@ if (!class_exists('Reports')) :
 		private function setupArgs($user_id)
 		{
 			global $wpdb;
-			$query = "
-			SELECT r.report_date, r.revenue, o.outlets_address, o.outlets_name FROM $wpdb->workpro_reports r JOIN $wpdb->workpro_outlets o ON r.outlets_id = o.id WHERE user_id = '$user_id' ORDER BY r.report_date DESC;
+			$query = '';
+
+			if ($user_id === 'all') {
+				$query = "
+				SELECT r.report_date, r.revenue, o.outlets_address, o.outlets_name FROM $wpdb->workpro_reports r JOIN $wpdb->workpro_outlets o ON r.outlets_id = o.id ORDER BY r.report_date DESC;
+				";
+			} else {
+				$query = "
+				SELECT r.report_date, r.revenue, o.outlets_address, o.outlets_name FROM $wpdb->workpro_reports r JOIN $wpdb->workpro_outlets o ON r.outlets_id = o.id WHERE user_id = '$user_id' ORDER BY r.report_date DESC;
 			";
+			}
+
 			return $wpdb->get_results($query, 'ARRAY_A');
 		}
 

@@ -4,8 +4,31 @@
 		$lk->render();
 	} ?>
 	<main class="page__main manager" id="reports">
-		Администратор:&nbsp;
 		<?= $args['user_name'] ? $args['user_name'] : 'Неизвестный' ?>
+		<form class="form" action="" method="post" autocomplete="off">
+
+			<label class="form__label">
+				<span>Менеджер:</span>
+				<select class="form__select" name="user_id">
+					<? if (isset($args['users'])) : ?>
+						<? foreach ($args['users'] as $user) : ?>
+							<option value="<?= $user['id'] ?>"><?= $user['name'] ?></option>
+						<? endforeach; ?>
+					<? endif; ?>
+				</select>
+			</label>
+			<button class="form__submit button button--filter" type="submit">
+				<span class="button__text text text--hidden">Выбрать</span>
+			</button>
+			<input type="hidden" name="form" value="admin">
+		</form>
+		<?
+
+		$reports = new Reports($args);
+		if ($reports) {
+			$reports->render();
+		}
+		?>
 	</main>
 
 <?
