@@ -48,3 +48,11 @@ img {
 .report__outlets-address {
 	display: inline-block;
 }
+
+.form--hidden {
+	display: none;
+}
+
+.form--hidden:target {
+	display:block;
+}

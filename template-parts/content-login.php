@@ -24,7 +24,21 @@
 				<?= $args['message'] ?>
 			</p>
 		<? endif; ?>
-		<a class="form__link" href="#">Забыли пароль?</a>
+	</form>
+	<a class="form__link" href="#restore">Забыли пароль?</a>
+
+	<form class="form form--hidden" action="/" method="post" autocomplete="off" id="restore">
+		<label class="form__label">
+		<span>Выслать новый пароль на:</span>
+			<input type="text" name="usermail" placeholder="Ваша почта" required>
+		</label>
+		<button class="form__submit button" type="submit">ОК</button>
+		<input type="hidden" name="form" value="restore">
+		<? if (isset($args) && is_array($args) && !empty($args) && $args['result'] === false) : ?>
+			<p class="form__message error">
+				<?= $args['message'] ?>
+			</p>
+		<? endif; ?>
 	</form>
 </main>
 
