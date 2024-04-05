@@ -10,6 +10,11 @@ if (!class_exists('Reports')) :
 			if (!isset($args['user_id'])) throw new Exception("Reports() необходимо передать аргументом id пользователя", 1012);
 			$reports = $this->setupArgs($args['user_id']);
 			$reports['user_id'] = $args['user_id'];
+
+			if(isset($args['event'])) {
+				$reports['event'] = $args['event'];
+			}
+
 			parent::__construct($reports);
 		}
 

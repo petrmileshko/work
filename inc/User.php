@@ -29,7 +29,7 @@ if (!class_exists('User')) :
 
 			if (self::$user->isManagerEvent() && is_user_logged_in()) {
 				self::$user->setupArgs();
-				self::$user->args['manager'] = self::$user->processEvent();
+				self::$user->args['event'] = self::$user->processEvent();
 				return self::$user;
 			}
 
@@ -101,7 +101,7 @@ if (!class_exists('User')) :
 		private function processEvent() {
 			$args = [];
 			foreach($_POST as $key => $item) {
-				$args[$key] = multiStrip($item);
+				if($key !== 'form') $args[$key] = multiStrip($item);
 			}
 			return $args;
 		}
