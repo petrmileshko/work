@@ -28,7 +28,8 @@ if (!class_exists('User')) :
 			}
 
 			if (self::$user->isManagerEvent() && is_user_logged_in()) {
-				self::$user->args = ['result' => true, 'message' => 'Отчеты'];
+				self::$user->setupArgs();
+				self::$user->args['manager'] = self::$user->processEvent();
 				return self::$user;
 			}
 
@@ -95,6 +96,14 @@ if (!class_exists('User')) :
 		private function isManagerEvent()
 		{
 			return isset($_POST['form']) && $_POST['form'] === 'manager';
+		}
+
+		private function processEvent() {
+			$args = [];
+			foreach($_POST as $key => $item) {
+				$args[$key] = multiStrip($item);
+			}
+			return $args;
 		}
 	}
 
