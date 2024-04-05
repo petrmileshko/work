@@ -27,3 +27,7 @@
 - JavaScript ES5
 - Webpack и Gulp
 - WordPress 6.4.3
+
+---
+Структура БД
+![image](https://work.webpeternet.ru//img/data-tables.png)
