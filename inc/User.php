@@ -100,8 +100,8 @@ if (!class_exists('User')) :
 
 				wp_update_user($user);
 				if (!is_wp_error($user)) {
-					wp_mail($email, "Сообщение с сайта -" . home_url() , "<b>Ваш новый пароль для входа:</b> $new_pass", 'content-type: text/html');
-					return ['result' => true, 'message' => 'Выслали новый пароль на почту: '.$email];
+					wp_mail($email, "Сообщение с сайта -" . home_url(), "<b>Ваш новый пароль для входа:</b> $new_pass", 'content-type: text/html');
+					return ['result' => true, 'message' => 'Выслали новый пароль на почту: ' . $email];
 				} else {
 					return ['result' => false, 'message' => 'Ошибка восстановления пароля. Сообщите администратору.'];
 				}
