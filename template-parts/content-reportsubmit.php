@@ -2,7 +2,7 @@
 	<form class="form" action="/" method="post" autocomplete="off">
 		<label class="form__label">
 			<time class="form__label" datetime="<?= date('Y-m-d h:m:s'); ?>"><?= date('d-m-Y'); ?></time>
-			<input type="hidden" name="date" value="<?= date('Y-m-d h:m:s'); ?>">
+			<input type="hidden" name="report_date" value="<?= date('Y-m-d h:m:s'); ?>">
 		</label>
 		<label class="form__label">
 			<span>Торговая точка:</span>

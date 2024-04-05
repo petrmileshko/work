@@ -8,13 +8,16 @@ if (!class_exists('Reports')) :
 		public function __construct($args = [])
 		{
 			if (!isset($args['user_id'])) throw new Exception("Reports() необходимо передать аргументом id пользователя", 1012);
-			$reports = $this->setupArgs($args['user_id']);
-			$reports['user_id'] = $args['user_id'];
 
-			if(isset($args['event'])) {
-				$reports['event'] = $args['event'];
+			if (isset($args['event'])) {
+				$result = $this->insertArgs($args['event']);
+				$reports = $this->setupArgs($args['user_id']);
+				$reports['event'] = $result;
+			} else {
+				$reports = $this->setupArgs($args['user_id']);
 			}
 
+			$reports['user_id'] = $args['user_id'];
 			parent::__construct($reports);
 		}
 
@@ -30,6 +33,12 @@ if (!class_exists('Reports')) :
 			SELECT r.report_date, r.revenue, o.outlets_address, o.outlets_name FROM $wpdb->workpro_reports r JOIN $wpdb->workpro_outlets o ON r.outlets_id = o.id WHERE user_id = '$user_id' ORDER BY r.report_date DESC;
 			";
 			return $wpdb->get_results($query, 'ARRAY_A');
+		}
+
+		private function insertArgs($args)
+		{
+			global $wpdb;
+			return $wpdb->insert($wpdb->workpro_reports, $args, ['%s', '%d', '%f', '%d']);
 		}
 	}
 
