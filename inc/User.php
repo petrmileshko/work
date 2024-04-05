@@ -21,6 +21,11 @@ if (!class_exists('User')) :
 				return self::$user;
 			}
 
+			if (self::$user->isRestorePassEvent() && !is_user_logged_in()) {
+				self::$user->args = self::$user->restorePass();
+				return self::$user;
+			}
+
 			if (self::$user->isLogoutEvent() && is_user_logged_in()) {
 				self::$user->args = [];
 				self::$user->logout();
@@ -62,8 +67,8 @@ if (!class_exists('User')) :
 		private function authorise()
 		{
 
-			$log = ($_POST['userlogin']) ? wp_unslash( multiStrip( $_POST['userlogin'])) : '';
-			$pwd = ($_POST['userpass']) ? wp_unslash( multiStrip($_POST['userpass'])) : '';
+			$log = ($_POST['userlogin']) ? wp_unslash(multiStrip($_POST['userlogin'])) : '';
+			$pwd = ($_POST['userpass']) ? wp_unslash(multiStrip($_POST['userpass'])) : '';
 
 			$auth = wp_authenticate($log, $pwd);
 
@@ -77,6 +82,34 @@ if (!class_exists('User')) :
 			return ['result' => false, 'message' => 'Учетные данные не подтверждены'];
 		}
 
+		private function restorePass()
+		{
+
+			$email = ($_POST['usermail']) ? multiStrip($_POST['usermail']) : '';
+
+			if (!validate_email($email)) return ['result' => false, 'message' => 'Почта введена не корректно.'];
+
+			$result = get_user_by('email', $email);
+
+			if ($result) {
+				$new_pass = $this->randomPassword('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!{}~');
+				$user = [
+					'ID' => $result->ID,
+					'user_pass' => $new_pass
+				];
+
+				wp_update_user($user);
+				if (!is_wp_error($user)) {
+					wp_mail($email, "Сообщение с сайта -" . home_url() , "<b>Ваш новый пароль для входа:</b> $new_pass", 'content-type: text/html');
+					return ['result' => true, 'message' => 'Выслали новый пароль на почту: '.$email];
+				} else {
+					return ['result' => false, 'message' => 'Ошибка восстановления пароля. Сообщите администратору.'];
+				}
+			}
+
+			return ['result' => false, 'message' => 'Данная почта не зарегистрирована'];
+		}
+
 		private function logout()
 		{
 			wp_logout();
@@ -86,6 +119,11 @@ if (!class_exists('User')) :
 		private function isLoginEvent()
 		{
 			return isset($_POST['form']) && $_POST['form'] === 'login';
+		}
+
+		private function isRestorePassEvent()
+		{
+			return isset($_POST['form']) && $_POST['form'] === 'restore';
 		}
 
 		private function isLogoutEvent()
@@ -98,12 +136,25 @@ if (!class_exists('User')) :
 			return isset($_POST['form']) && $_POST['form'] === 'manager';
 		}
 
-		private function processEvent() {
+		private function processEvent()
+		{
 			$args = [];
-			foreach($_POST as $key => $item) {
-				if($key !== 'form') $args[$key] = multiStrip($item);
+			foreach ($_POST as $key => $item) {
+				if ($key !== 'form') $args[$key] = multiStrip($item);
 			}
 			return $args;
+		}
+
+		private function randomPassword($string)
+		{
+			$pass = [];
+			$string_length = strlen($string) - 1;
+
+			for ($i = 0; $i < 8; $i++) {
+				$n = rand(0, $string_length);
+				$pass[] = $string[$n];
+			}
+			return implode($pass);
 		}
 	}
 
