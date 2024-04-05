@@ -2,7 +2,7 @@
 	<form class="form" action="/" method="post" autocomplete="off">
 		<label class="form__label">
 			<time class="form__label" datetime="<?= date('Y-m-d h:m:s'); ?>"><?= date('d-m-Y'); ?></time>
-			<input type="hidden" name="date" value="<?= date('Y-m-d h:m:s'); ?>">
+			<input type="hidden" name="report_date" value="<?= date('Y-m-d h:m:s'); ?>">
 		</label>
 		<label class="form__label">
 			<span>Торговая точка:</span>
@@ -23,9 +23,9 @@
 		</button>
 		<input type="hidden" name="form" value="manager">
 		<input type="hidden" name="user_id" value="<?= $args['user_id'] ?>">
-		<? if (isset($args) && is_array($args) && !empty($args) && $args['result'] === false) : ?>
+		<? if (isset($args['event']) && !$args['event'] ) : ?>
 			<p class="form__message error">
-				<?= $args['message'] ?>
+				<?='Ошибка ввода данных'?>
 			</p>
 		<? endif; ?>
 	</form>

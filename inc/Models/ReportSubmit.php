@@ -8,8 +8,10 @@ if (!class_exists('ReportSubmit')) :
 		public function __construct($args = [])
 		{
 			if (!isset($args['user_id'])) throw new Exception("ReportSubmit() необходимо передать аргументом id пользователя", 1011);
+
 			$outlets = $this->setupArgs();
 			$outlets['user_id'] = $args['user_id'];
+
 			parent::__construct($outlets);
 		}
 
