@@ -79,7 +79,7 @@ if (!class_exists('User')) :
 				wp_redirect(get_bloginfo('url'));
 			}
 
-			return ['result' => false, 'message' => 'Учетные данные не подтверждены'];
+			return ['result' => false, 'message' => 'Учетные данные отсутсвуют'];
 		}
 
 		private function restorePass()
@@ -87,7 +87,7 @@ if (!class_exists('User')) :
 
 			$email = ($_POST['usermail']) ? multiStrip($_POST['usermail']) : '';
 
-			if (!validate_email($email)) return ['result' => false, 'message' => 'Почта введена не корректно.'];
+			if (!validate_email($email)) return ['result' => false, 'message' => 'Почта введена некорректно.'];
 
 			$result = get_user_by('email', $email);
 
@@ -107,7 +107,7 @@ if (!class_exists('User')) :
 				}
 			}
 
-			return ['result' => false, 'message' => 'Данная почта не зарегистрирована'];
+			return ['result' => false, 'message' => 'Почта отсутсвует'];
 		}
 
 		private function logout()
