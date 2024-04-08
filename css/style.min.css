@@ -56,3 +56,19 @@ img {
 .form--hidden:target {
 	display:block;
 }
+
+.report__item {
+	display: inline-block;
+}
+
+.report__submit {
+	display: none;
+}
+
+.report:focus-within .report__submit {
+	display: inline-block;
+}
+
+.report__revenue {
+	text-align: right;
+}

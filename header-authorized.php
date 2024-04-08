@@ -18,6 +18,7 @@
 		<ul class="navigation__menu menu menu--nojs">
 			<li class="menu__item"><a class="menu__link menu__link--current text" href="#reports">Отчеты</a></li>
 			<?=(isset($args['role']) && $args['role'] == 'Администратор') ? '<li class="menu__item"><a class="menu__link text" href="#summary">Сводный</a></li>': '' ?>
+			<?=(isset($args['role']) && $args['role'] == 'Менеджер') ? '<li class="menu__item"><a class="menu__link text" href="#update">Изменить</a></li>': '' ?>
 			<li class="menu__item"><a class="menu__link text" href="#lk">ЛК</a></li>
 		</ul>
 	</nav>
