@@ -34,7 +34,7 @@ if (!class_exists('User')) :
 
 			if (self::$user->isManagerEvent() && is_user_logged_in()) {
 				self::$user->setupArgs();
-				self::$user->args['event'] = self::$user->processEvent();
+				self::$user->args['manager'] = self::$user->processEvent();
 				return self::$user;
 			}
 

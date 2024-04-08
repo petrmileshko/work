@@ -10,10 +10,10 @@ if (!class_exists('Reports')) :
 			if (!isset($args['user_id'])) throw new Exception("Reports() необходимо передать аргументом id пользователя", 1012);
 
 
-			if (isset($args['event'])) {
-				$result = $this->insertArgs($args['event']);
+			if (isset($args['manager'])) {
+				$result = $this->insertArgs($args['manager']);
 				$reports = $this->setupArgs($args['user_id']);
-				$reports['event'] = $result;
+				$reports['manager'] = $result;
 			} else {
 				if (isset($args['ReportSubmit']) && $args['ReportSubmit'] === 'off') {
 					$reports = $this->setupArgs('all');
