@@ -16,7 +16,7 @@
 		</label>
 		<label class="form__label">
 			<span>Выручка:</span>
-			<input class="form__input" type="number" name="revenue" step="0.01" placeholder="Выручка" required>
+			<input class="form__input" type="number" name="revenue" step="0.01" placeholder="Выручка" min="0" required>
 		</label>
 		<button class="form__submit button button--add" type="submit">
 			<span class="button__text text text--hidden">Добавить</span>

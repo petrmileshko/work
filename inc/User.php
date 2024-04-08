@@ -50,6 +50,12 @@ if (!class_exists('User')) :
 				return self::$user;
 			}
 
+			if (self::$user->isUpdateEvent() && is_user_logged_in()) {
+				self::$user->setupArgs();
+				self::$user->args['update'] = self::$user->processEvent();
+				return self::$user;
+			}
+
 			self::$user->setupArgs();
 			return self::$user;
 		}
@@ -156,6 +162,11 @@ if (!class_exists('User')) :
 		private function isSummaryEvent()
 		{
 			return isset($_POST['form']) && $_POST['form'] === 'summary';
+		}
+
+		private function isUpdateEvent()
+		{
+			return isset($_POST['form']) && $_POST['form'] === 'update';
 		}
 
 		private function processEvent()

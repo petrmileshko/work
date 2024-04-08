@@ -13,7 +13,7 @@ if (!class_exists('Manager')) :
 		public function render()
 		{
 			$this->header();
-			$this->header('authorized');
+			$this->header('authorized', ['role'=>'Менеджер']);
 			parent::render();
 			$this->footer('authorized', ['role'=>'Менеджер']);
 			$this->footer();
