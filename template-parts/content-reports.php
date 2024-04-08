@@ -14,7 +14,7 @@
 					<time class="report__date" datetime="<?= $report['report_date'] ?>"><?= convertDate($report['report_date'], 'd-m-Y')  ?>&nbsp;&nbsp;</time>
 					<span class="report__outlets-name"><?= $report['outlets_name'] ?>&nbsp;&nbsp;</span>
 					<address class="report__outlets-address"><?= $report['outlets_address'] ?>&nbsp;&nbsp;</address>
-					<span class="report__revenue"><?= $report['revenue'] ?> руб</span>
+					<span class="report__revenue"><?= $report['revenue'] ?> <?= $report['revenue'] ? workpro_num_suffix(round($report['revenue'], 2), 'рубль, рубля, рублей', 0) : 'Нет данных' ?></span>
 				</li>
 			<? endif; ?>
 		<? endforeach; ?>
