@@ -12,7 +12,7 @@
 				<select class="form__select" name="user_id">
 					<? if (isset($args['users'])) : ?>
 						<? foreach ($args['users'] as $user) : ?>
-							<option value="<?= $user['id'] ?>"><?= $user['name'] ?></option>
+							<option value="<?= $user['id'] ?>" <?=(isset($args['admin']) && $user['id'] == $args['admin']['user_id']) ? 'selected': ''?> ><?= $user['name'] ?></option>
 						<? endforeach; ?>
 					<? endif; ?>
 				</select>

@@ -14,12 +14,16 @@ if (!class_exists('Reports')) :
 				$result = $this->insertArgs($args['manager']);
 				$reports = $this->setupArgs($args['user_id']);
 				$reports['manager'] = $result;
+			} elseif (isset($args['admin'])) {
+				$reports = $this->setupArgs($args['admin']['user_id']);
+				$reports['ReportSubmit'] = $args['ReportSubmit'];
 			} else {
 				if (isset($args['ReportSubmit']) && $args['ReportSubmit'] === 'off') {
 					$reports = $this->setupArgs('all');
 					$reports['ReportSubmit'] = $args['ReportSubmit'];
 				} else $reports = $this->setupArgs($args['user_id']);
 			}
+
 
 			$reports['user_id'] = $args['user_id'];
 			parent::__construct($reports);

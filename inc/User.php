@@ -38,6 +38,12 @@ if (!class_exists('User')) :
 				return self::$user;
 			}
 
+			if (self::$user->isAdminEvent() && is_user_logged_in()) {
+				self::$user->setupArgs();
+				self::$user->args['admin'] = self::$user->processEvent();
+				return self::$user;
+			}
+
 			self::$user->setupArgs();
 			return self::$user;
 		}
@@ -135,6 +141,12 @@ if (!class_exists('User')) :
 		{
 			return isset($_POST['form']) && $_POST['form'] === 'manager';
 		}
+
+		private function isAdminEvent()
+		{
+			return isset($_POST['form']) && $_POST['form'] === 'admin';
+		}
+
 
 		private function processEvent()
 		{
