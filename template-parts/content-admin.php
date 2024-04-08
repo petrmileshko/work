@@ -10,6 +10,7 @@
 			<label class="form__label">
 				<span>Менеджер:</span>
 				<select class="form__select" name="user_id">
+					<option value="all" <?=(isset($args['admin']) && $args['admin']['user_id']=='all' ) ? 'selected': ''?>>Все</option>
 					<? if (isset($args['users'])) : ?>
 						<? foreach ($args['users'] as $user) : ?>
 							<option value="<?= $user['id'] ?>" <?=(isset($args['admin']) && $user['id'] == $args['admin']['user_id']) ? 'selected': ''?> ><?= $user['name'] ?></option>
