@@ -34,7 +34,19 @@ if (!class_exists('User')) :
 
 			if (self::$user->isManagerEvent() && is_user_logged_in()) {
 				self::$user->setupArgs();
-				self::$user->args['event'] = self::$user->processEvent();
+				self::$user->args['manager'] = self::$user->processEvent();
+				return self::$user;
+			}
+
+			if (self::$user->isAdminEvent() && is_user_logged_in()) {
+				self::$user->setupArgs();
+				self::$user->args['admin'] = self::$user->processEvent();
+				return self::$user;
+			}
+
+			if (self::$user->isSummaryEvent() && is_user_logged_in()) {
+				self::$user->setupArgs();
+				self::$user->args['summary'] = self::$user->processEvent();
 				return self::$user;
 			}
 
@@ -79,7 +91,7 @@ if (!class_exists('User')) :
 				wp_redirect(get_bloginfo('url'));
 			}
 
-			return ['result' => false, 'message' => 'Учетные данные не подтверждены'];
+			return ['result' => false, 'message' => 'Учетные данные отсутсвуют'];
 		}
 
 		private function restorePass()
@@ -87,7 +99,7 @@ if (!class_exists('User')) :
 
 			$email = ($_POST['usermail']) ? multiStrip($_POST['usermail']) : '';
 
-			if (!validate_email($email)) return ['result' => false, 'message' => 'Почта введена не корректно.'];
+			if (!validate_email($email)) return ['result' => false, 'message' => 'Почта введена некорректно.'];
 
 			$result = get_user_by('email', $email);
 
@@ -107,7 +119,7 @@ if (!class_exists('User')) :
 				}
 			}
 
-			return ['result' => false, 'message' => 'Данная почта не зарегистрирована'];
+			return ['result' => false, 'message' => 'Почта отсутсвует'];
 		}
 
 		private function logout()
@@ -134,6 +146,16 @@ if (!class_exists('User')) :
 		private function isManagerEvent()
 		{
 			return isset($_POST['form']) && $_POST['form'] === 'manager';
+		}
+
+		private function isAdminEvent()
+		{
+			return isset($_POST['form']) && $_POST['form'] === 'admin';
+		}
+
+		private function isSummaryEvent()
+		{
+			return isset($_POST['form']) && $_POST['form'] === 'summary';
 		}
 
 		private function processEvent()

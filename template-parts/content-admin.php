@@ -2,7 +2,16 @@
 	$lk = new Profile($args);
 	if ($lk) {
 		$lk->render();
-	} ?>
+	}
+	if (isset($args['summary'])) {
+		$summary = new ReportsSummary($args['summary']['month']);
+	} else {
+		$summary = new ReportsSummary();
+	}
+	if ($summary) {
+		$summary->render();
+	}
+?>
 	<main class="page__main manager" id="reports">
 		<?= $args['user_name'] ? $args['user_name'] : 'Неизвестный' ?>
 		<form class="form" action="" method="post" autocomplete="off">
@@ -10,9 +19,10 @@
 			<label class="form__label">
 				<span>Менеджер:</span>
 				<select class="form__select" name="user_id">
+					<option value="all" <?= (isset($args['admin']) && $args['admin']['user_id'] == 'all') ? 'selected' : '' ?>>Все</option>
 					<? if (isset($args['users'])) : ?>
 						<? foreach ($args['users'] as $user) : ?>
-							<option value="<?= $user['id'] ?>"><?= $user['name'] ?></option>
+							<option value="<?= $user['id'] ?>" <?= (isset($args['admin']) && $user['id'] == $args['admin']['user_id']) ? 'selected' : '' ?>><?= $user['name'] ?></option>
 						<? endforeach; ?>
 					<? endif; ?>
 				</select>
@@ -30,6 +40,4 @@
 		}
 		?>
 	</main>
-
-<?
-endif; ?>
+<? endif; ?>

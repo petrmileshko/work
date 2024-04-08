@@ -23,7 +23,7 @@
 		</button>
 		<input type="hidden" name="form" value="manager">
 		<input type="hidden" name="user_id" value="<?= $args['user_id'] ?>">
-		<? if (isset($args['event']) && !$args['event'] ) : ?>
+		<? if (isset($args['manager']) && !$args['manager'] ) : ?>
 			<p class="form__message error">
 				<?='Ошибка ввода данных'?>
 			</p>
