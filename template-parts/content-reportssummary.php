@@ -21,7 +21,7 @@
 			<input type="hidden" name="form" value="summary">
 		</form>
 		<p class="manager-summ__value">
-			Выручка составила: <?= $args['ReportsSummary'][0]['total'] ? workpro_num_suffix($args['ReportsSummary'][0]['total'], 'рубль, рубля, рублей') : 'Нет данных' ?>
+			Выручка составила: <?= $args['ReportsSummary'][0]['total'] ? workpro_num_suffix( round($args['ReportsSummary'][0]['total'],2), 'рубль, рубля, рублей') : 'Нет данных' ?>
 		</p>
 	</main>
 <? endif;
