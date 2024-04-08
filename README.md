@@ -7,6 +7,8 @@
 - admin (администратор)
 
 пароль: 123
+
+[ссылка](https://work.webpeternet.com/)
 ---
 ## ТЗ
 
