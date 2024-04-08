@@ -36,11 +36,12 @@
 		if ($reports) {
 			$reports->render();
 		}
-
-		$lk = new Profile($args);
-		if ($lk) {
-			$lk->render();
-		}
 		?>
 	</main>
+	<?
+	$lk = new Profile($args);
+	if ($lk) {
+		$lk->render();
+	}
+	?>
 <? endif; ?>
