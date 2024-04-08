@@ -15,7 +15,7 @@ if (!class_exists('Admin')) :
 		public function render()
 		{
 			$this->header();
-			$this->header('authorized');
+			$this->header('authorized', ['role' => 'Администратор']);
 			parent::render();
 			$this->footer('authorized', ['role' => 'Администратор']);
 			$this->footer();
