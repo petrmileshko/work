@@ -1,8 +1,4 @@
 <? if (isset($args) && is_array($args) && !empty($args)) :
-	$lk = new Profile($args);
-	if ($lk) {
-		$lk->render();
-	}
 	if (isset($args['summary'])) {
 		$summary = new ReportsSummary($args['summary']['month']);
 	} else {
@@ -22,9 +18,9 @@
 					<option value="all" <?= (isset($args['admin']) && $args['admin']['user_id'] == 'all') ? 'selected' : '' ?>>Все</option>
 					<? if (isset($args['users'])) : ?>
 						<? foreach ($args['users'] as $user) : ?>
-							<? if($user['id'] != $args['user_id']) :?>
-							<option value="<?= $user['id'] ?>" <?= (isset($args['admin']) && $user['id'] == $args['admin']['user_id']) ? 'selected' : '' ?>><?= $user['name'] ?></option>
-							<? endif;?>
+							<? if ($user['id'] != $args['user_id']) : ?>
+								<option value="<?= $user['id'] ?>" <?= (isset($args['admin']) && $user['id'] == $args['admin']['user_id']) ? 'selected' : '' ?>><?= $user['name'] ?></option>
+							<? endif; ?>
 						<? endforeach; ?>
 					<? endif; ?>
 				</select>
@@ -39,6 +35,11 @@
 		$reports = new Reports($args);
 		if ($reports) {
 			$reports->render();
+		}
+
+		$lk = new Profile($args);
+		if ($lk) {
+			$lk->render();
 		}
 		?>
 	</main>
