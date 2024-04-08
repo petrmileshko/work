@@ -53,6 +53,24 @@ if (!class_exists('Reports')) :
 			return $wpdb->get_results($query, 'ARRAY_A');
 		}
 
+		private function getSummary($month = 'all')
+		{
+			global $wpdb;
+			$query = '';
+
+			if ($month === 'all') {
+				$query = "
+				select SUM(revenue) from $wpdb->workpro_reports;
+				";
+			} else {
+				$query = "
+				select SUM(revenue) from $wpdb->workpro_reports where month(report_date) = $month;
+			";
+			}
+
+			return $wpdb->get_results($query, 'ARRAY_A');
+		}
+
 		private function insertArgs($args)
 		{
 			global $wpdb;
