@@ -13,11 +13,11 @@
 						<? endforeach; ?>
 					<? endif; ?>
 				</select>
-				<?= (isset($args['month']) && $args['month'] == 'all') ? ' месяцы' : ' месяц' ?>
 			</label>
 			<button class="form__submit button button--filter" type="submit">
 				<span class="button__text text text--hidden">Выбрать</span>
 			</button>
+			<span><?= (isset($args['month']) && $args['month'] == 'all') ? ' месяцы' : ' месяц' ?></span>
 			<input type="hidden" name="form" value="summary">
 		</form>
 		<p class="manager-summ__value">
