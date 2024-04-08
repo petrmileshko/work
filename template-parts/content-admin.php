@@ -22,7 +22,9 @@
 					<option value="all" <?= (isset($args['admin']) && $args['admin']['user_id'] == 'all') ? 'selected' : '' ?>>Все</option>
 					<? if (isset($args['users'])) : ?>
 						<? foreach ($args['users'] as $user) : ?>
+							<? if($user['id'] != $args['user_id']) :?>
 							<option value="<?= $user['id'] ?>" <?= (isset($args['admin']) && $user['id'] == $args['admin']['user_id']) ? 'selected' : '' ?>><?= $user['name'] ?></option>
+							<? endif;?>
 						<? endforeach; ?>
 					<? endif; ?>
 				</select>

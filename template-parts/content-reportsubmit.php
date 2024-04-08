@@ -1,5 +1,5 @@
 <? if (isset($args) && is_array($args) && !empty($args)) : ?>
-	<form class="form" action="/" method="post" autocomplete="off">
+	<form class="form" action="/#reports" method="post" autocomplete="off">
 		<label class="form__label">
 			<time class="form__label" datetime="<?= date('Y-m-d h:m:s'); ?>"><?= date('d-m-Y'); ?></time>
 			<input type="hidden" name="report_date" value="<?= date('Y-m-d h:m:s'); ?>">

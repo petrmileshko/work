@@ -33,7 +33,7 @@ img {
 	display: none;
 }
 
-.page__main.manager {
+.page__main.profile {
 	display: block;
 }
 
@@ -41,7 +41,7 @@ img {
 	display: block;
 }
 
-.page__main:target ~ .manager {
+.page__main:target ~ .profile {
 	display: none;
 }
 
