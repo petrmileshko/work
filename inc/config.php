@@ -116,3 +116,24 @@ if (!function_exists('convertDate')) {
 		return $newDate->format($format);
 	}
 }
+
+if (!function_exists('workpro_num_suffix')) {
+	function workpro_num_suffix($number, $titles, $show_number = 1)
+	{
+		if (is_string($titles))
+			$titles = preg_split('/, */', $titles);
+
+		if (empty($titles[2]))
+			$titles[2] = $titles[1];
+
+		$cases = [2, 0, 1, 1, 1, 2];
+
+		$intnum = abs((int) strip_tags($number));
+
+		$title_index = ($intnum % 100 > 4 && $intnum % 100 < 20)
+			? 2
+			: $cases[min($intnum % 10, 5)];
+
+		return ($show_number ? "$number " : '') . $titles[$title_index];
+	}
+}

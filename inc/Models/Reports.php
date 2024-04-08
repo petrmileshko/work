@@ -21,6 +21,7 @@ if (!class_exists('Reports')) :
 				if (isset($args['ReportSubmit']) && $args['ReportSubmit'] === 'off') {
 					$reports = $this->setupArgs('all');
 					$reports['ReportSubmit'] = $args['ReportSubmit'];
+					$reports['ReportSummary'] = $this->getSummary();
 				} else $reports = $this->setupArgs($args['user_id']);
 			}
 
@@ -46,6 +47,24 @@ if (!class_exists('Reports')) :
 			} else {
 				$query = "
 				SELECT r.report_date, r.revenue, o.outlets_address, o.outlets_name FROM $wpdb->workpro_reports r JOIN $wpdb->workpro_outlets o ON r.outlets_id = o.id WHERE user_id = '$user_id' ORDER BY r.report_date DESC;
+			";
+			}
+
+			return $wpdb->get_results($query, 'ARRAY_A');
+		}
+
+		private function getSummary($month = 'all')
+		{
+			global $wpdb;
+			$query = '';
+
+			if ($month === 'all') {
+				$query = "
+				select SUM(revenue) from $wpdb->workpro_reports;
+				";
+			} else {
+				$query = "
+				select SUM(revenue) from $wpdb->workpro_reports where month(report_date) = $month;
 			";
 			}
 

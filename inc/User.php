@@ -44,6 +44,12 @@ if (!class_exists('User')) :
 				return self::$user;
 			}
 
+			if (self::$user->isSummaryEvent() && is_user_logged_in()) {
+				self::$user->setupArgs();
+				self::$user->args['summary'] = self::$user->processEvent();
+				return self::$user;
+			}
+
 			self::$user->setupArgs();
 			return self::$user;
 		}
@@ -147,6 +153,10 @@ if (!class_exists('User')) :
 			return isset($_POST['form']) && $_POST['form'] === 'admin';
 		}
 
+		private function isSummaryEvent()
+		{
+			return isset($_POST['form']) && $_POST['form'] === 'summary';
+		}
 
 		private function processEvent()
 		{
