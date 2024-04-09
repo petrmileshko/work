@@ -24,6 +24,7 @@
 			</svg>
 		</button>
 		<input type="hidden" name="form" value="login">
+		<a class="form__link" href="#restore">Забыли пароль?</a>
 		<? if (isset($args) && is_array($args) && !empty($args)) : ?>
 			<? if ($args['result'] === false) : ?>
 				<p class="form__message form__message--error">
@@ -36,11 +37,10 @@
 			<? endif; ?>
 		<? endif; ?>
 	</form>
-	<a class="form__link" href="#restore">Забыли пароль?</a>
 
 	<form class="form form--hidden" action="/" method="post" autocomplete="off" id="restore">
 		<label class="form__label">
-			<span>Выслать новый пароль на:</span>
+			<p>Выслать новый пароль на:</p>
 			<input class="form__input" type="text" name="usermail" placeholder="Ваша почта" required>
 		</label>
 		<button class="form__submit button button--submit" type="submit">
