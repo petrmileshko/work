@@ -9,7 +9,7 @@
 	</header>
 
 
-	<form class="form" action="/" method="post" autocomplete="off">
+	<form class="form <?= $args['result'] ? '' : 'form--animated'?>" action="/" method="post" autocomplete="off">
 		<p class="form__info">Используйте учетные данные от платформы</p>
 		<label class="form__label">
 			<input class="form__input" type="text" name="userlogin" placeholder="Логин" required>

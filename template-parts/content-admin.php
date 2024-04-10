@@ -8,7 +8,7 @@
 		$summary->render();
 	}
 ?>
-	<main class="page__main manager" id="reports">
+	<main class="page__main admin" id="reports">
 		<?= $args['user_name'] ? $args['user_name'] : 'Неизвестный' ?>
 		<form class="form" action="" method="post" autocomplete="off">
 
