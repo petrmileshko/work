@@ -1,5 +1,5 @@
 <? if (isset($args) && is_array($args) && !empty($args)) : ?>
-	<main class="page__main manager-update" id="update">
+	<main class="page__main manager-update center-fixed" id="update">
 		<h2 class="manager-update__title">Изменить отчеты за текущий месяц.</h2>
 
 		<? foreach ($args as $key => $report) : ?>
@@ -15,8 +15,11 @@
 						<input class="form-report__revenue" type="number" name="revenue" step="0.01" placeholder="Выручка" value="<?= $report['revenue'] ?>" min="0" required>
 						<span><?= $report['revenue'] ? workpro_num_suffix(round($report['revenue'], 2), 'рубль, рубля, рублей', 0) : 'Нет данных' ?></span>
 					</label>
-					<button class="form-report__submit button button--save" type="submit">
-						<span class="button__text text text--hidden">Обновить</span>
+					<button class="form__submit button button--save" type="submit">
+						<span class="button__text text visually-hidden">Обновить</span>
+						<svg class="button__icon">
+							<use xlink:href="<?=WORKPRO?>/img/sprite.svg#save"></use>
+						</svg>
 					</button>
 					<input type="hidden" name="form" value="update">
 					<input type="hidden" name="id" value="<?= $report['id'] ?>">
