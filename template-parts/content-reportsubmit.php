@@ -4,7 +4,7 @@
 			<time class="form__date" datetime="<?= date('Y-m-d h:m:s'); ?>"><?= date('d-m-Y'); ?></time>
 			<input type="hidden" name="report_date" value="<?= date('Y-m-d h:m:s'); ?>">
 		</p>
-		<label class="form__label">
+		<label class="form__label form__label--select">
 			<span>Торговая точка:</span>
 			<select class="form__select form__select--revenue" name="outlets_id">
 				<? foreach ($args as $key => $outlets) : ?>
