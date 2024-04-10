@@ -14,8 +14,8 @@
 							echo " $currentYear";
 						}
 						?>
-			&nbsp;&nbsp;<em>Вы зашли в систему как:</em>
-			<b><?= $args['role'] ? $args['role'] : '' ?></b>
+			&nbsp;&nbsp;<em>Вы зашли как:</em>
+			<b>&nbsp;<?= $args['role'] ? $args['role'] : '' ?></b>
 		</p>
 	</div>
 </footer>
