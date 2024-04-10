@@ -1,6 +1,7 @@
 <? if (isset($args) && is_array($args) && !empty($args)) : ?>
 	<form class="form form--manager" action="/#reports" method="post" autocomplete="off">
 		<p class="form__text">
+			<span>Сегодня: </span>
 			<time class="form__date" datetime="<?= date('Y-m-d h:m:s'); ?>"><?= date('d-m-Y'); ?></time>
 			<input type="hidden" name="report_date" value="<?= date('Y-m-d h:m:s'); ?>">
 		</p>
@@ -20,7 +21,7 @@
 		<button class="form__submit button button--add" type="submit">
 			<span class="button__text text visually-hidden">Добавить</span>
 			<svg class="button__icon button__icon--add">
-				<use xlink:href="<?=WORKPRO?>/img/sprite.svg#add-report"></use>
+				<use xlink:href="<?= WORKPRO ?>/img/sprite.svg#add-report"></use>
 			</svg>
 		</button>
 		<input type="hidden" name="form" value="manager">
