@@ -12,10 +12,10 @@
 	<form class="form" action="/" method="post" autocomplete="off">
 		<p class="form__info">Используйте учетные данные от платформы</p>
 		<label class="form__label">
-			<input class="form__input" type="text" name="userlogin" placeholder="Ваш логин" required>
+			<input class="form__input" type="text" name="userlogin" placeholder="Логин" required>
 		</label>
 		<label class="form__label">
-			<input class="form__input" type="password" name="userpass" placeholder="Ваш пароль" required>
+			<input class="form__input" type="password" name="userpass" placeholder="Пароль" required>
 		</label>
 		<button class="form__submit button button--submit" type="submit">
 			<span class="button__text text visually-hidden">Далее</span>
@@ -41,7 +41,7 @@
 	<form class="form form--hidden" action="/" method="post" autocomplete="off" id="restore">
 		<label class="form__label">
 			<p>Выслать новый пароль на:</p>
-			<input class="form__input" type="text" name="usermail" placeholder="Ваша почта" required>
+			<input class="form__input" type="text" name="usermail" placeholder="Почта" required>
 		</label>
 		<button class="form__submit button button--submit" type="submit">
 			<span class="button__text text visually-hidden">Отправить</span>
