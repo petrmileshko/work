@@ -15,4 +15,4 @@
   <link rel="preload" href="<?=WORKPRO?>/fonts/open-sans-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="<?=WORKPRO?>/fonts/open-sans-regular.woff2" as="font" type="font/woff2" crossorigin>
 </head>
-<body class="page__body">
+<body class="page__body <?= is_user_logged_in() ? 'page__body--inner': ''?>">

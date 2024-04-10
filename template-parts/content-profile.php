@@ -1,5 +1,5 @@
 <? if (isset($args) && is_array($args) && !empty($args)) : ?>
-	<main class="page__main profile" id="lk">
+	<main class="page__main profile center-fixed" id="lk">
 		<div class="profile__wrapper">
 			<p class="profile__data">
 				Логин:&nbsp;<?= $args['user_login'] ? $args['user_login'] : 'Неизвестно' ?>

@@ -40,7 +40,7 @@
 
 	<form class="form form--hidden" action="/" method="post" autocomplete="off" id="restore">
 		<label class="form__label">
-			<p>Выслать новый пароль на:</p>
+			<span>Выслать новый пароль на:</span>
 			<input class="form__input" type="text" name="usermail" placeholder="Почта" required>
 		</label>
 		<button class="form__submit button button--submit" type="submit">
