@@ -23,10 +23,10 @@
 					<? endif; ?>
 				</select>
 			</label>
-			<button class="form__submit button button--filter" type="submit">
+			<button class="form__submit button button--filter" type="submit" title="Подтвердить выбор менеджера">
 				<span class="button__text text visually-hidden">Выбрать</span>
 				<svg class="button__icon">
-					<use xlink:href="<?=WORKPRO?>/img/sprite.svg#select-reports"></use>
+					<use xlink:href="<?=WORKPRO?>/img/sprite.svg#select-manager"></use>
 				</svg>
 			</button>
 			<input type="hidden" name="form" value="admin">

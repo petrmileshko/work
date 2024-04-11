@@ -1,5 +1,5 @@
 <? if (isset($args) && is_array($args) && !empty($args)) : ?>
-	<main class="page__main admin-summ" id="summary">
+	<main class="page__main admin-summ center-fixed" id="summary">
 		<h2 class="admin-summ__title">Сводный отчет за текущий <?= date('Y'); ?> год</h2>
 		<form class="form form--sum" action="" method="post" autocomplete="off">
 
@@ -15,7 +15,7 @@
 				</select>
 				<span><?= (isset($args['month']) && $args['month'] == 'all') ? ' месяцы' : ' месяц' ?></span>
 			</label>
-			<button class="form__submit button button--filter" type="submit">
+			<button class="form__submit button button--filter" type="submit" title="Подтвердить месяц">
 				<span class="button__text text visually-hidden">Выбрать</span>
 				<svg class="button__icon">
 					<use xlink:href="<?=WORKPRO?>/img/sprite.svg#select-reports"></use>
