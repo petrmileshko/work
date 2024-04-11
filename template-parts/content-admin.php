@@ -8,11 +8,9 @@
 		$summary->render();
 	}
 ?>
-	<main class="page__main admin" id="reports">
-		<?= $args['user_name'] ? $args['user_name'] : 'Неизвестный' ?>
-		<form class="form" action="" method="post" autocomplete="off">
-
-			<label class="form__label">
+	<main class="page__main admin center-fixed" id="reports">
+		<form class="form form--managers" action="" method="post" autocomplete="off">
+			<label class="form__label form__label--managers">
 				<span>Менеджер:</span>
 				<select class="form__select" name="user_id">
 					<option value="all" <?= (isset($args['admin']) && $args['admin']['user_id'] == 'all') ? 'selected' : '' ?>>Все</option>
