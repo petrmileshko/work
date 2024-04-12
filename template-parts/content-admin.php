@@ -8,11 +8,9 @@
 		$summary->render();
 	}
 ?>
-	<main class="page__main manager" id="reports">
-		<?= $args['user_name'] ? $args['user_name'] : 'Неизвестный' ?>
-		<form class="form" action="" method="post" autocomplete="off">
-
-			<label class="form__label">
+	<main class="page__main admin center-fixed" id="reports">
+		<form class="form form--managers" action="" method="post" autocomplete="off">
+			<label class="form__label form__label--managers">
 				<span>Менеджер:</span>
 				<select class="form__select" name="user_id">
 					<option value="all" <?= (isset($args['admin']) && $args['admin']['user_id'] == 'all') ? 'selected' : '' ?>>Все</option>
@@ -25,8 +23,11 @@
 					<? endif; ?>
 				</select>
 			</label>
-			<button class="form__submit button button--filter" type="submit">
-				<span class="button__text text text--hidden">Выбрать</span>
+			<button class="form__submit button button--filter" type="submit" title="Подтвердить выбор менеджера">
+				<span class="button__text text visually-hidden">Выбрать</span>
+				<svg class="button__icon">
+					<use xlink:href="<?=WORKPRO?>/img/sprite.svg#select-manager"></use>
+				</svg>
 			</button>
 			<input type="hidden" name="form" value="admin">
 		</form>
