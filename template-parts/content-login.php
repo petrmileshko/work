@@ -64,6 +64,6 @@
 						echo " $currentYear";
 					}
 					?>
-		<em>&nbsp;&nbsp;Приложение в стадии разработки</em>
+		<em>&nbsp;&nbsp;<a class="text text--underline" href="https://github.com/petrmileshko/work/blob/main/README.md" target="_blank">Инструкция для входа</a></em>
 	</p>
 </footer>
