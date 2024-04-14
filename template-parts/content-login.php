@@ -9,13 +9,14 @@
 	</header>
 
 
-	<form class="form <?= isset($args['message']) ? '' : 'form--animated'?>" action="/" method="post" autocomplete="off">
+	<form class="form <?= isset($args['message']) ? '' : 'form--animated'?>" action="/" method="post" autocomplete="off" id="login">
 		<p class="form__info">Используйте учетные данные от платформы</p>
 		<label class="form__label">
-			<input class="form__input" type="text" name="userlogin" placeholder="Логин" required>
+			<input class="form__input" type="text" name="userlogin" placeholder="Логин" data-pristine-required-message="Это поле обязательно для ввода." required>
 		</label>
-		<label class="form__label">
-			<input class="form__input" type="password" name="userpass" placeholder="Пароль" required>
+		<label class="form__label form__label--password">
+			<input class="form__input" type="password" name="userpass" placeholder="Пароль" data-pristine-required-message="Это поле обязательно для ввода." required>
+			<span class="form__input-toggler"></span>
 		</label>
 		<button class="form__submit button button--submit" type="submit">
 			<span class="button__text text visually-hidden">Далее</span>
@@ -41,7 +42,7 @@
 	<form class="form form--hidden" action="/" method="post" autocomplete="off" id="restore">
 		<label class="form__label">
 			<span>Выслать новый пароль на:</span>
-			<input class="form__input" type="text" name="usermail" placeholder="Почта" required>
+			<input class="form__input" type="text" name="usermail" placeholder="Почта" data-pristine-required-message="Это поле обязательно для ввода." required>
 		</label>
 		<button class="form__submit button button--submit" type="submit">
 			<span class="button__text text visually-hidden">Отправить</span>
