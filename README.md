@@ -43,4 +43,4 @@
 
 ---
 Структура БД
-![image](https://files.webpeternet.com/tables.png)
+![image](https://work.webpetr.ru/files/tables.png)
